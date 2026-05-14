@@ -14,7 +14,8 @@
 
     .min-page main { display: block; }
     .min-page .wrap-narrow {
-      max-width: 920px; margin: 0 auto;
+      /* Slightly wider on big screens so type + measure scale together */
+      max-width: min(1040px, 92vw); margin: 0 auto;
       padding-inline: clamp(20px, 6vw, 80px);
     }
 
@@ -24,9 +25,9 @@
       padding: 28px clamp(20px, 6vw, 80px);
       border-bottom: 1px solid var(--line);
     }
-    .min-bar .logomark { font-weight: 600; font-size: 15px; }
+    .min-bar .logomark { font-weight: 600; font-size: clamp(14px, 0.22vw + 13px, 17px); }
     .min-bar a.email {
-      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+      font-family: var(--font-mono); font-size: clamp(11px, 0.18vw + 10px, 14px); letter-spacing: 0.04em;
       text-decoration: none; color: var(--ink-2);
       transition: color .25s;
     }
@@ -38,7 +39,7 @@
       padding-bottom: clamp(60px, 9vw, 120px);
     }
     .min-hero .eyebrow {
-      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+      font-family: var(--font-mono); font-size: clamp(11px, 0.2vw + 10px, 13px); letter-spacing: 0.08em;
       color: var(--ink-2); text-transform: uppercase;
       display: inline-flex; align-items: center; gap: 10px;
       margin-bottom: clamp(28px, 4vw, 48px);
@@ -49,15 +50,17 @@
       box-shadow: 0 0 8px color-mix(in oklab, var(--ember) 40%, transparent);
     }
     .min-hero h1 {
-      font-size: clamp(48px, 8.6vw, 124px);
+      /* Keep display type in proportion to viewport on very wide monitors */
+      font-size: clamp(48px, 0.85rem + 6.2vw, 138px);
       line-height: 0.96; letter-spacing: -0.04em; font-weight: 500;
       margin: 0;
     }
     .min-hero .lede {
       margin-top: clamp(28px, 4vw, 44px);
-      max-width: 560px;
-      font-size: clamp(17px, 1.4vw, 21px);
-      line-height: 1.4; color: var(--ink-2);
+      max-width: min(38em, 100%);
+      /* Was capped at 21px — felt tiny next to a 120px+ headline on full-width windows */
+      font-size: clamp(1.0625rem, 0.9rem + 0.65vw, 1.625rem);
+      line-height: 1.45; color: var(--ink-2);
     }
 
     /* Block — generic two-line section */
@@ -66,7 +69,7 @@
       border-top: 1px solid var(--line);
     }
     .min-block .label {
-      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+      font-family: var(--font-mono); font-size: clamp(11px, 0.2vw + 10px, 13px); letter-spacing: 0.08em;
       color: var(--amber-deep); text-transform: uppercase;
       margin-bottom: clamp(20px, 3vw, 32px);
       display: flex; align-items: baseline; gap: 14px;
@@ -76,20 +79,21 @@
       align-self: center;
     }
     .min-block h2 {
-      font-size: clamp(32px, 4.4vw, 64px);
+      font-size: clamp(32px, 1.25rem + 2.8vw, 76px);
       line-height: 1.02; letter-spacing: -0.025em; font-weight: 500;
-      margin: 0; max-width: 740px;
+      margin: 0; max-width: min(42em, 100%);
     }
     .min-block h2 em { font-style: italic; font-weight: 400; color: var(--ember-deep); }
     .min-block p {
       margin-top: clamp(20px, 2.4vw, 28px);
-      max-width: 560px;
-      font-size: 17px; line-height: 1.5; color: var(--ink-2);
+      max-width: min(38em, 100%);
+      font-size: clamp(1.0625rem, 0.92rem + 0.42vw, 1.3125rem);
+      line-height: 1.55; color: var(--ink-2);
     }
     .min-block .meta-row {
       margin-top: clamp(28px, 4vw, 40px);
       display: flex; flex-wrap: wrap; gap: clamp(20px, 4vw, 48px);
-      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+      font-family: var(--font-mono); font-size: clamp(11px, 0.16vw + 10.5px, 14px); letter-spacing: 0.04em;
       color: var(--ink-2);
     }
     .min-block .meta-row b { display: block; color: var(--ink); font-weight: 500; margin-bottom: 4px; }
@@ -116,7 +120,7 @@
       border-top: 1px solid var(--line);
       display: flex; flex-wrap: wrap; gap: 16px;
       justify-content: space-between; align-items: baseline;
-      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+      font-family: var(--font-mono); font-size: clamp(11px, 0.18vw + 10px, 13px); letter-spacing: 0.06em;
       color: var(--ink-2); text-transform: uppercase;
     }
     .min-sig a { color: var(--ink-2); text-decoration: none; }
@@ -125,7 +129,7 @@
     /* Contact block — big email link */
     .min-contact .h-big {
       display: block;
-      font-size: clamp(40px, 6.8vw, 96px);
+      font-size: clamp(40px, 0.75rem + 5.5vw, 112px);
       line-height: 1.0; letter-spacing: -0.035em; font-weight: 500;
       color: var(--ink); text-decoration: none;
       transition: color .25s;
@@ -143,7 +147,7 @@
       gap: clamp(24px, 4vw, 40px);
     }
     .min-contact .links a {
-      font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em;
+      font-family: var(--font-mono); font-size: clamp(12px, 0.2vw + 11px, 15px); letter-spacing: 0.04em;
       color: var(--ink); text-decoration: none;
       padding-bottom: 4px; border-bottom: 1px solid var(--line);
       transition: color .25s, border-color .25s;
