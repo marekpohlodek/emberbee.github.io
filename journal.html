@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Journal — Ember Bee Studio</title>
+  <meta name="description" content="Devlog and field notes from Ember Bee Studio — building Pulsebound, one entry at a time." />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="logomark" href="index.html">
+        <span class="dot"></span>
+        <span>Ember Bee Studio</span>
+      </a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="index.html">Index</a>
+        <a href="pulsebound.html">Pulsebound</a>
+        <a href="index.html#studio">Studio</a>
+        <a href="journal.html" aria-current="page">Journal</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <span class="mono">EST. MMXXV</span>
+        <span class="status-pulse mono">AVAILABLE</span>
+      </div>
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span></button>
+    </div>
+    <div class="menu-panel" id="menu">
+      <a href="index.html">Index</a>
+      <a href="pulsebound.html">Pulsebound</a>
+      <a href="index.html#studio">Studio</a>
+      <a href="journal.html">Journal</a>
+      <a href="index.html#contact">Contact</a>
+      <span class="mono-xs">hello@emberbee.studio · Berlin · available</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero wrap">
+      <div class="crumbs">
+        <a href="index.html">Index</a>
+        <span>›</span>
+        <span>Journal</span>
+      </div>
+
+      <div class="kicker reveal" style="display:flex; gap:16px; flex-wrap:wrap; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; color: var(--ink-2); text-transform: uppercase; margin-bottom: 32px;">
+        <span style="display:inline-block; width:12px; height:12px; background: var(--ember-grad); box-shadow: 0 0 8px color-mix(in oklab, var(--ember) 40%, transparent);"></span>
+        <span>Journal · 04 / Notebook</span>
+        <span>12 entries</span>
+        <span>RSS available</span>
+      </div>
+
+      <h1 class="h-display">
+        <span data-split>Field notes</span><br/>
+        <span data-split>from the </span><em data-split>workshop.</em>
+      </h1>
+
+      <div class="hero lede-row reveal" style="margin-top: clamp(32px,5vw,56px);">
+        <p class="lede">Building a game alone, in public. Short essays on combat design, longer ones on staying sane as a solo dev. A fresh note every fortnight.</p>
+        <div class="meta">
+          <div class="row"><span class="key">Latest</span><span>2026 · 05 · 09</span></div>
+          <div class="row"><span class="key">Cadence</span><span>Every other Sunday</span></div>
+          <div class="row"><span class="key">Subscribe</span><span><a href="index.html#contact" style="color: var(--amber-deep);">Newsletter ↗</a></span></div>
+          <div class="row"><span class="key">RSS</span><span><a href="#" style="color: var(--amber-deep);">/feed.xml ↗</a></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="section-tight wrap" style="border-top: 1px solid var(--line); padding-top: clamp(32px,4vw,48px); padding-bottom: 24px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <span class="mono-xs" style="color: var(--ink-2); margin-right: 16px;">Filter:</span>
+        <button class="btn btn-sm" style="padding: 8px 14px;" data-filter="all">All (12)</button>
+        <button class="btn btn-sm btn-ghost" style="padding: 8px 14px;" data-filter="PULSEBOUND">Pulsebound (5)</button>
+        <button class="btn btn-sm btn-ghost" style="padding: 8px 14px;" data-filter="PROCESS">Process (4)</button>
+        <button class="btn btn-sm btn-ghost" style="padding: 8px 14px;" data-filter="ESSAY">Essay (2)</button>
+        <button class="btn btn-sm btn-ghost" style="padding: 8px 14px;" data-filter="STUDIO">Studio (1)</button>
+      </div>
+    </section>
+
+    <!-- LIST -->
+    <section class="section-tight wrap" style="border-top: 1px solid var(--line); padding-top: 0;">
+
+      <div class="news reveal-stagger reveal" id="news-list">
+
+        <!-- featured -->
+        <a class="news-item" href="journal-atb-clock.html" data-tag="PULSEBOUND" style="grid-template-columns: 60px 130px 1.6fr 1fr 100px;">
+          <span class="n">012</span>
+          <span class="date">2026 · 05 · 09</span>
+          <h3>How an ATB clock changed the whole game</h3>
+          <span class="small" style="color: var(--ink-2);">After a year of strict turn-based prototypes, switching to a real-time clock turned every fight from a math problem into a tempo puzzle.</span>
+          <span class="tag">PULSEBOUND</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="PROCESS">
+          <span class="n">011</span>
+          <span class="date">2026 · 04 · 22</span>
+          <h3>Animating a roster of 48 creatures (alone)</h3>
+          <span class="tag">PROCESS</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="ESSAY">
+          <span class="n">010</span>
+          <span class="date">2026 · 04 · 03</span>
+          <h3>On generosity in roguelikes</h3>
+          <span class="tag">ESSAY</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="STUDIO">
+          <span class="n">009</span>
+          <span class="date">2026 · 03 · 11</span>
+          <h3>The first six months: what a solo studio costs</h3>
+          <span class="tag">STUDIO</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="PROCESS">
+          <span class="n">008</span>
+          <span class="date">2026 · 02 · 18</span>
+          <h3>Building a custom dialogue engine from scratch</h3>
+          <span class="tag">PROCESS</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="PULSEBOUND">
+          <span class="n">007</span>
+          <span class="date">2026 · 01 · 29</span>
+          <h3>The first creature that felt alive</h3>
+          <span class="tag">PULSEBOUND</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="ESSAY">
+          <span class="n">006</span>
+          <span class="date">2026 · 01 · 12</span>
+          <h3>Why JRPGs are about the spaces between encounters</h3>
+          <span class="tag">ESSAY</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="PULSEBOUND">
+          <span class="n">005</span>
+          <span class="date">2025 · 12 · 22</span>
+          <h3>Twelve combat prototypes, one keeper</h3>
+          <span class="tag">PULSEBOUND</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="PROCESS">
+          <span class="n">004</span>
+          <span class="date">2025 · 12 · 03</span>
+          <h3>Tools I built before I built the game</h3>
+          <span class="tag">PROCESS</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="PULSEBOUND">
+          <span class="n">003</span>
+          <span class="date">2025 · 11 · 19</span>
+          <h3>What it means to "remember" — designing creature memory</h3>
+          <span class="tag">PULSEBOUND</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="PROCESS">
+          <span class="n">002</span>
+          <span class="date">2025 · 11 · 02</span>
+          <h3>Pixel art at three speeds (and one I gave up on)</h3>
+          <span class="tag">PROCESS</span>
+        </a>
+
+        <a class="news-item" href="#" data-tag="PULSEBOUND">
+          <span class="n">001</span>
+          <span class="date">2025 · 10 · 14</span>
+          <h3>Hello — and what I'm building</h3>
+          <span class="tag">PULSEBOUND</span>
+        </a>
+
+      </div>
+
+      <p class="small mt-lg" style="text-align: center; color: var(--ink-2);">— end of feed · subscribe to get them as they land —</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>© Ember Bee Studio · 2026 — a one-person workshop</span>
+    <div class="right">
+      <span>Berlin → World</span>
+      <span>12 entries · 0.4 site</span>
+      <a href="index.html#contact">Subscribe</a>
+      <a href="#">↑ Top</a>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+  <script>
+    // Simple tag filter
+    (() => {
+      const list = document.getElementById('news-list');
+      const items = Array.from(list.querySelectorAll('.news-item'));
+      const btns = document.querySelectorAll('[data-filter]');
+      btns.forEach((b) => b.addEventListener('click', () => {
+        const f = b.dataset.filter;
+        btns.forEach((x) => {
+          x.classList.toggle('btn-ghost', x !== b);
+        });
+        items.forEach((it) => {
+          const show = f === 'all' || it.dataset.tag === f;
+          it.style.display = show ? '' : 'none';
+        });
+      }));
+    })();
+  </script>
+</body>
+</html>

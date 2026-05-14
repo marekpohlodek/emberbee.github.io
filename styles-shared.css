@@ -1,0 +1,27 @@
+/* Shared base for all three directions */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=VT323&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Caveat:wght@400;500;600;700&family=Press+Start+2P&display=swap');
+
+/* Each direction lives inside .dir-N wrapper for scope isolation. */
+.dir { box-sizing: border-box; }
+.dir *, .dir *::before, .dir *::after { box-sizing: border-box; }
+.dir img { display: block; max-width: 100%; }
+
+/* Reusable striped placeholder — declared once, themed per direction via CSS vars */
+.ph {
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--ph-a, rgba(0,0,0,0.04)) 0 8px,
+      var(--ph-b, rgba(0,0,0,0.08)) 8px 16px
+    );
+  overflow: hidden;
+  border: 1px solid var(--ph-border, rgba(0,0,0,0.08));
+}
+.ph-label {
+  position: absolute; left: 12px; bottom: 10px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.04em;
+  color: var(--ph-text, rgba(0,0,0,0.55));
+  text-transform: uppercase;
+}

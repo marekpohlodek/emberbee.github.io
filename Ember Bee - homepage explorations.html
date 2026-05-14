@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ember Bee Studio — Homepage explorations</title>
+  <link rel="stylesheet" href="styles-shared.css" />
+  <style>
+    html, body { margin: 0; padding: 0; background: #f0eee9; height: 100%; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+    #root { height: 100vh; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="direction-1.jsx"></script>
+  <script type="text/babel" src="direction-2.jsx"></script>
+  <script type="text/babel" src="direction-3.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    const { DesignCanvas: DCanvas, DCSection: DCSec, DCArtboard: DCArt, DCPostIt: DCPost } = window;
+
+    function App() {
+      return (
+        <DCanvas>
+          <DCSec
+            id="intro"
+            title="Ember Bee Studio · Homepage explorations"
+            subtitle="Three distinct visual identities — same studio, same content, three lenses. All share a cool slate/fog base + grotesk type. Each has its own signature hover behavior. Open any board fullscreen to scroll the full mock."
+          >
+            <DCPost left={40} top={120} width={280}>
+              <b>How to read these:</b><br/>
+              Each board is a complete homepage (Hero · Games · About · Devlog · Contact). They're tall — click ⤢ on a card to open it fullscreen and scroll through. Hover things to see the signature interactions in each direction.
+            </DCPost>
+          </DCSec>
+
+          <DCSec
+            id="directions"
+            title="Three directions"
+            subtitle="01 · Index — Editorial Swiss   ·   02 · Atelier — Pixel devlog   ·   03 · Field Notes — Handcrafted"
+          >
+            <DCArt id="d1" label="01 · Index — Editorial Swiss" width={window.D1_W} height={window.D1_H}>
+              <window.Direction1 />
+            </DCArt>
+
+            <DCArt id="d2" label="02 · Atelier — Pixel devlog" width={window.D2_W} height={window.D2_H}>
+              <window.Direction2 />
+            </DCArt>
+
+            <DCArt id="d3" label="03 · Field Notes — Handcrafted" width={window.D3_W} height={window.D3_H}>
+              <window.Direction3 />
+            </DCArt>
+          </DCSec>
+
+          <DCSec
+            id="systems"
+            title="Quick system cheatsheet"
+            subtitle="Type pairings, palette, and signature interactions per direction"
+          >
+            <DCArt id="sys1" label="01 · Index — system" width={520} height={620}>
+              <div style={{padding: 36, fontFamily:'Space Grotesk, system-ui, sans-serif', background:'#f3f5f8', color:'#14181d', width:'100%', height:'100%'}}>
+                <div style={{fontFamily:'JetBrains Mono, monospace', fontSize:11, letterSpacing:'.08em', color:'#2a3038'}}>01 / INDEX</div>
+                <h2 style={{fontSize:38, letterSpacing:'-0.03em', margin:'12px 0 28px'}}>Editorial Swiss.</h2>
+
+                <div style={{display:'grid', gridTemplateColumns:'90px 1fr', rowGap:12, fontSize:14}}>
+                  <div style={{fontFamily:'JetBrains Mono, monospace', fontSize:11, color:'#5c6470', textTransform:'uppercase', letterSpacing:'.06em'}}>Type</div>
+                  <div>Space Grotesk · JetBrains Mono</div>
+                  <div style={{fontFamily:'JetBrains Mono, monospace', fontSize:11, color:'#5c6470', textTransform:'uppercase', letterSpacing:'.06em'}}>Mood</div>
+                  <div>Gallery-clean, confident, indexed</div>
+                  <div style={{fontFamily:'JetBrains Mono, monospace', fontSize:11, color:'#5c6470', textTransform:'uppercase', letterSpacing:'.06em'}}>Hovers</div>
+                  <div>Magnetic CTAs · mask-wipe image reveal · number scramble</div>
+                </div>
+
+                <div style={{display:'flex', gap:8, margin:'24px 0 12px'}}>
+                  <div style={{width:64,height:64,background:'#14181d'}}></div>
+                  <div style={{width:64,height:64,background:'#2a3038'}}></div>
+                  <div style={{width:64,height:64,background:'#e8ebef'}}></div>
+                  <div style={{width:64,height:64,background:'#f3f5f8',border:'1px solid #14181d22'}}></div>
+                  <div style={{width:64,height:64,background:'oklch(0.78 0.13 75)'}}></div>
+                </div>
+                <div style={{fontFamily:'JetBrains Mono, monospace', fontSize:10, color:'#5c6470'}}>Ink · Ink-2 · Fog · Paper · Amber (one accent)</div>
+
+                <div style={{marginTop:28, borderTop:'1px solid #14181d22', paddingTop:20}}>
+                  <div style={{fontSize:64, letterSpacing:'-0.045em', lineHeight:0.9, fontWeight:500}}>Aa</div>
+                  <div style={{fontFamily:'JetBrains Mono, monospace', fontSize:12, marginTop:10}}>Aa 0123456789</div>
+                </div>
+              </div>
+            </DCArt>
+
+            <DCArt id="sys2" label="02 · Atelier — system" width={520} height={620}>
+              <div style={{padding: 36, fontFamily:'Space Grotesk, system-ui, sans-serif', background:'#0e1419', color:'#d9dde2', width:'100%', height:'100%', position:'relative', overflow:'hidden'}}>
+                <div style={{position:'absolute', inset:0, background:'repeating-linear-gradient(0deg, rgba(255,255,255,0.020) 0 1px, transparent 1px 3px)', pointerEvents:'none'}}></div>
+                <div style={{fontFamily:'VT323, monospace', fontSize:17, color:'oklch(0.82 0.10 200)'}}>// 02 · ATELIER</div>
+                <h2 style={{fontSize:38, letterSpacing:'-0.03em', margin:'12px 0 28px'}}>Pixel devlog.</h2>
+
+                <div style={{display:'grid', gridTemplateColumns:'100px 1fr', rowGap:12, fontSize:14}}>
+                  <div style={{fontFamily:'VT323, monospace', fontSize:17, color:'oklch(0.82 0.10 200)'}}>type</div>
+                  <div>Space Grotesk · VT323 · Press Start 2P</div>
+                  <div style={{fontFamily:'VT323, monospace', fontSize:17, color:'oklch(0.82 0.10 200)'}}>mood</div>
+                  <div>Terminal-y, nerdy, retro-future</div>
+                  <div style={{fontFamily:'VT323, monospace', fontSize:17, color:'oklch(0.82 0.10 200)'}}>hovers</div>
+                  <div>Text scramble · CRT scanlines · pixel buttons</div>
+                </div>
+
+                <div style={{display:'flex', gap:8, margin:'24px 0 12px'}}>
+                  <div style={{width:64,height:64,background:'#0e1419', border:'1px solid #2a323b'}}></div>
+                  <div style={{width:64,height:64,background:'#202833'}}></div>
+                  <div style={{width:64,height:64,background:'#c5cad1'}}></div>
+                  <div style={{width:64,height:64,background:'#d9dde2'}}></div>
+                  <div style={{width:64,height:64,background:'oklch(0.82 0.10 200)'}}></div>
+                </div>
+                <div style={{fontFamily:'VT323, monospace', fontSize:14, color:'#d9dde2', opacity:.8}}>ink · line · fog · paper · cyan (phosphor)</div>
+
+                <div style={{marginTop:28, borderTop:'1px solid #2a323b', paddingTop:20}}>
+                  <div style={{fontSize:64, letterSpacing:'-0.045em', lineHeight:0.9, fontWeight:500}}>Aa<span style={{color:'oklch(0.82 0.10 200)'}}>_</span></div>
+                  <div style={{fontFamily:'VT323, monospace', fontSize:18, marginTop:8}}>Aa 0123456789</div>
+                  <div style={{fontFamily:'Press Start 2P, monospace', fontSize:10, marginTop:8}}>AA 0123</div>
+                </div>
+              </div>
+            </DCArt>
+
+            <DCArt id="sys3" label="03 · Field Notes — system" width={520} height={620}>
+              <div style={{padding: 36, fontFamily:'Bricolage Grotesque, system-ui, sans-serif', background:'#eceef1', color:'#1f242b', width:'100%', height:'100%'}}>
+                <div style={{fontFamily:'Caveat, cursive', fontSize:26, color:'oklch(0.50 0.16 32)', transform:'rotate(-2deg)', display:'inline-block'}}>03 · field notes →</div>
+                <h2 style={{fontSize:38, letterSpacing:'-0.025em', margin:'12px 0 28px', fontWeight:700}}>Handcrafted.</h2>
+
+                <div style={{display:'grid', gridTemplateColumns:'100px 1fr', rowGap:12, fontSize:14}}>
+                  <div style={{fontFamily:'Caveat, cursive', fontSize:20, color:'oklch(0.50 0.16 32)'}}>type</div>
+                  <div>Bricolage Grotesque · Caveat · JetBrains Mono</div>
+                  <div style={{fontFamily:'Caveat, cursive', fontSize:20, color:'oklch(0.50 0.16 32)'}}>mood</div>
+                  <div>Notebook, taped, personal</div>
+                  <div style={{fontFamily:'Caveat, cursive', fontSize:20, color:'oklch(0.50 0.16 32)'}}>hovers</div>
+                  <div>Hand-drawn underline · circled annotations · marquee bees</div>
+                </div>
+
+                <div style={{display:'flex', gap:8, margin:'24px 0 12px'}}>
+                  <div style={{width:64,height:64,background:'#1f242b'}}></div>
+                  <div style={{width:64,height:64,background:'#3b424c'}}></div>
+                  <div style={{width:64,height:64,background:'#e2e5ea'}}></div>
+                  <div style={{width:64,height:64,background:'#eceef1', border:'1px solid #1f242b22'}}></div>
+                  <div style={{width:64,height:64,background:'oklch(0.62 0.16 35)'}}></div>
+                  <div style={{width:64,height:64,background:'oklch(0.80 0.13 78)'}}></div>
+                </div>
+                <div style={{fontFamily:'JetBrains Mono, monospace', fontSize:10, color:'#3b424c'}}>ink · ink-2 · fog · paper · rust · honey</div>
+
+                <div style={{marginTop:28, borderTop:'1px dashed #1f242b40', paddingTop:20}}>
+                  <div style={{fontSize:64, letterSpacing:'-0.035em', lineHeight:0.9, fontWeight:700}}>Aa</div>
+                  <div style={{fontFamily:'Caveat, cursive', fontSize:34, marginTop:4, color:'#1f242b'}}>Aa — hello!</div>
+                </div>
+              </div>
+            </DCArt>
+          </DCSec>
+        </DCanvas>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How an ATB clock changed the whole game — Ember Bee Journal</title>
+  <meta name="description" content="After a year of strict turn-based prototypes, switching to a real-time ATB clock turned every fight from a math problem into a tempo puzzle." />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="logomark" href="index.html">
+        <span class="dot"></span>
+        <span>Ember Bee Studio</span>
+      </a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="index.html">Index</a>
+        <a href="pulsebound.html">Pulsebound</a>
+        <a href="index.html#studio">Studio</a>
+        <a href="journal.html" aria-current="page">Journal</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <span class="mono">EST. MMXXV</span>
+        <span class="status-pulse mono">AVAILABLE</span>
+      </div>
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span></button>
+    </div>
+    <div class="menu-panel" id="menu">
+      <a href="index.html">Index</a>
+      <a href="pulsebound.html">Pulsebound</a>
+      <a href="index.html#studio">Studio</a>
+      <a href="journal.html">Journal</a>
+      <a href="index.html#contact">Contact</a>
+      <span class="mono-xs">hello@emberbee.studio · Berlin · available</span>
+    </div>
+  </header>
+
+  <main>
+
+    <article class="article">
+      <div class="crumbs" style="display: flex; gap: 8px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; color: var(--ink-2); margin-bottom: 32px; text-transform: uppercase;">
+        <a href="index.html" style="color: var(--ink-2); text-decoration: none;">Index</a>
+        <span>›</span>
+        <a href="journal.html" style="color: var(--ink-2); text-decoration: none;">Journal</a>
+        <span>›</span>
+        <span>012</span>
+      </div>
+
+      <div class="meta">
+        <span>2026 · 05 · 09</span>
+        <span>·</span>
+        <span style="color: var(--amber-deep);">PULSEBOUND</span>
+        <span>·</span>
+        <span>9 min read</span>
+      </div>
+
+      <h1 class="h-2">How an ATB clock changed the whole game.</h1>
+
+      <p class="lede" style="margin-top: 32px; color: var(--ink-2);">After a year of strict turn-based prototypes, I scrapped the queue and replaced it with a real-time ATB clock. Every fight stopped feeling like a math problem and started feeling like a tempo puzzle. Here's what changed, what broke, and what I'd do differently.</p>
+
+      <div class="body">
+
+        <figure>
+          <div class="ph" style="aspect-ratio: 16/9;">
+            <span class="ph-label">— ATB clock, week one ·</span>
+            <span class="ph-corner">FIG. 01</span>
+          </div>
+          <figcaption>FIG. 01 · The first ATB build. Five gauges, three songs, one very confused playtester.</figcaption>
+        </figure>
+
+        <h2>The problem with strict turns</h2>
+        <p>For Pulsebound's first year I was making a turn-based JRPG. Pure, classical, Dragon-Quest-shaped: you act, they act, repeat. It was readable. It was teachable. It was — I have to say it — <em>boring</em>.</p>
+        <p>Not boring in the "needs more numbers" way. Boring in the way that the most interesting decisions a player made were over before the fight started. You picked your party, you read the move list, and combat was a thirty-second proof.</p>
+        <blockquote>What I wanted was for the <em>fight itself</em> to be where you played, not the menu before it.</blockquote>
+        <p>I tried the usual fixes: positioning, timed inputs, action points, weakness systems. They all <em>added</em> things. The combat got busier. It didn't get more interesting.</p>
+
+        <h2>Switching to ATB</h2>
+        <p>So I tore it out. One Sunday in March, I deleted the turn queue and gave every combatant a gauge that filled in real time. When the gauge hits 100%, the unit acts. Pausing is allowed but costly. The player and the enemies share the same clock.</p>
+        <p>This is, of course, the system that <code>FFIV</code>, <code>Chrono Trigger</code>, and roughly half of mid-90s SquareSoft used. I am not inventing wheels here. What surprised me was how completely a system I thought was a small tweak changed every other system in the game.</p>
+
+        <h3>What got better</h3>
+        <ul>
+          <li><strong>Tempo replaced calculation.</strong> Players stopped optimizing on paper and started <em>reading the fight</em>. When does this enemy attack? Can I get a song off before they do?</li>
+          <li><strong>The party became a band.</strong> Three gauges going at slightly different speeds means three different decisions are always almost-ready. Combat is now about which decision to spend a beat on, not which sequence to plan.</li>
+          <li><strong>Mercy got teeth.</strong> Choosing not to attack used to be a free, costless move. Under the clock, mercy costs a beat — and so does kindness, and so does waiting. <em>Every</em> choice has a cost now.</li>
+        </ul>
+
+        <h3>What got worse (or at least, harder)</h3>
+        <ul>
+          <li><strong>Readability is now your full-time job.</strong> If players can't see what's filling and when, they get justifiably angry. I had to redo the entire combat HUD. Twice.</li>
+          <li><strong>Difficulty became weirdly volatile.</strong> An enemy that's barely a threat in a quiet room is a wall when there's three of them and the player is mid-decision. Tuning means tuning the whole orchestra at once.</li>
+          <li><strong>Accessibility got harder.</strong> Real-time anything is a hostile system for some players. We now have a "Composer" mode that slows the clock to 25% and a "Pause-to-Plan" toggle that's basically a strict-turn fallback. Both took weeks.</li>
+        </ul>
+
+        <figure>
+          <div class="ph" style="aspect-ratio: 16/9;">
+            <span class="ph-label">— HUD redraft 07 ·</span>
+            <span class="ph-corner">FIG. 02</span>
+          </div>
+          <figcaption>FIG. 02 · The seventh combat HUD. The first one a non-developer playtester read correctly without coaching.</figcaption>
+        </figure>
+
+        <h2>What I'd do differently</h2>
+        <p>I waited too long. A year of turn-based prototypes was, in retrospect, a year of avoiding the answer. The signs were there — every time I described what I <em>wanted</em> the fights to feel like, I described tempo and music. Every time I described what the fights actually felt like, I described arithmetic.</p>
+        <p>If you're a solo dev reading this and your combat is technically working but doesn't feel like the game you're describing in conversation, that gap is the only thing that matters. Listen to it earlier than I did.</p>
+
+        <blockquote>The game you describe to people is the game you should be making. If the prototype keeps describing a different one, the prototype is the thing that has to change.</blockquote>
+
+        <h2>Next</h2>
+        <p>The vertical slice is on the rails again. I'm tuning the "songs" system — three-beat actions your creatures can spend their gauges on. I'll write that up in a couple weeks once it stops embarrassing me. As always, the newsletter is the best way to know when these go up.</p>
+
+        <p style="color: var(--ink-2); font-family: var(--font-mono); font-size: 13px; margin-top: 56px;">— S.</p>
+      </div>
+
+    </article>
+
+    <!-- RELATED -->
+    <section class="section wrap" style="border-top: 1px solid var(--line);">
+      <div class="section-head">
+        <div class="num">RELATED</div>
+        <h2 class="h-4 visually-hidden">Related</h2>
+        <div class="meta"><a href="journal.html" style="text-decoration: none; color: inherit;">All entries →</a></div>
+      </div>
+
+      <div class="news reveal-stagger reveal">
+        <a class="news-item" href="#">
+          <span class="n">011</span>
+          <span class="date">2026 · 04 · 22</span>
+          <h3>Animating a roster of 48 creatures (alone)</h3>
+          <span class="tag">PROCESS</span>
+        </a>
+        <a class="news-item" href="#">
+          <span class="n">007</span>
+          <span class="date">2026 · 01 · 29</span>
+          <h3>The first creature that felt alive</h3>
+          <span class="tag">PULSEBOUND</span>
+        </a>
+        <a class="news-item" href="#">
+          <span class="n">005</span>
+          <span class="date">2025 · 12 · 22</span>
+          <h3>Twelve combat prototypes, one keeper</h3>
+          <span class="tag">PULSEBOUND</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER CTA -->
+    <section class="section contact wrap">
+      <div class="section-head">
+        <div class="num">NEXT</div>
+        <h2 class="h-4 visually-hidden">Subscribe</h2>
+        <div class="meta">No tracking · unsub easy</div>
+      </div>
+
+      <h2 class="h-1 reveal">Get the next one — <em>by email.</em></h2>
+      <p class="lede reveal" style="margin-top: 24px; max-width: 640px;">A short note every fortnight. Devlog highlights, occasional essays, zero noise.</p>
+
+      <form class="subscribe reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks ✦';" style="max-width: 480px; margin-top: 40px;">
+        <input type="email" required placeholder="your email" aria-label="Email" />
+        <span class="mag" data-mag data-mag-x="0.15" data-mag-y="0.2">
+          <button class="btn btn-sm" type="submit">Subscribe <span class="arrow">→</span></button>
+        </span>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>© Ember Bee Studio · 2026 — a one-person workshop</span>
+    <div class="right">
+      <a href="journal.html">All entries</a>
+      <a href="index.html">Index</a>
+      <a href="#">↑ Top</a>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
